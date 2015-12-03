@@ -442,7 +442,7 @@ module.exports = function(grunt) {
             main: {
                 options: {
                     mode: 'tgz',
-                    archive: 'target/x_mobile.tgz'
+                    archive: 'target/lrproto.tgz'
                 },
                 files: [{
                     expand: true,
