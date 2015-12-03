@@ -17,7 +17,9 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.sortable',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'ngMaterial',
+    'ngAria'
   ])
   .config(['localStorageServiceProvider', function(localStorageServiceProvider) {
     localStorageServiceProvider.setPrefix('ls');
@@ -33,6 +35,16 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .when('/caselist', {
+        templateUrl: 'views/caselist.html',
+        controller: 'CaselistCtrl',
+        controllerAs: 'caselist'
+      })
+      .when('/casedetail', {
+        templateUrl: 'views/casedetail.html',
+        controller: 'CasedetailCtrl',
+        controllerAs: 'casedetail'
       })
       .otherwise({
         redirectTo: '/'
