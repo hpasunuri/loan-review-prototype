@@ -463,7 +463,7 @@ module.exports = function(grunt) {
                 options: {
                     war_dist_folder: '<%= yeoman.dist %>', // where you have your yeoman build files
                     war_verbose: true,
-                    war_name: 'loan-review-prototype', // the name of your war
+                    war_name: 'lrproto', // the name of your war
                     webxml_welcome: 'index.html',
                     webxml_display_name: 'Loan Review Prototype',
                     webxml_mime_mapping: [ // some settings that you want to appear in your web.xml file
