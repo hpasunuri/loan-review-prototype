@@ -25,6 +25,8 @@ module.exports = function(grunt) {
         dist: 'dist'
     };
 
+    grunt.loadNpmTasks('grunt-war');
+
     // Define the configuration for all the tasks
     grunt.initConfig({
 
@@ -451,6 +453,29 @@ module.exports = function(grunt) {
                     dot: true
                 }]
             }
+        },
+
+        /*
+         * Build a WAR (web archive) without Maven or the JVM installed.
+         */
+        war: {
+            target: {
+                options: {
+                    war_dist_folder: '<%= yeoman.dist %>', // where you have your yeoman build files
+                    war_verbose: true,
+                    war_name: 'loan-review-prototype', // the name of your war
+                    webxml_welcome: 'index.html',
+                    webxml_display_name: 'Loan Review Prototype',
+                    webxml_mime_mapping: [ // some settings that you want to appear in your web.xml file
+                    ]
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.dist %>', // where you have your yeoman build files
+                    src: ['**'],
+                    dest: '.'
+                }]
+            }
         }
     });
 
@@ -512,8 +537,10 @@ module.exports = function(grunt) {
     grunt.registerTask('cibuild', [
         'karma:continuous',
         'build',
-        'compress'
+        'compress',
+        'war'
     ]);
 
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-war');
 };
